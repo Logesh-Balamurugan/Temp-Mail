@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Temporary Email</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>TempMail Studio</h1>
+        <p class="tagline">Instant disposable inbox — fast, private, and stylish</p>
+    </header>
+
+    <main class="layout">
+        <section id="main-box" class="card">
+            <h2>Your Temporary Email Address</h2>
+            <div class="email-row">
+                <span id="emailDisplay" class="email-display">—</span>
+                <div class="btn-group">
+                    <button class="btn" onclick="copyEmail()" aria-label="Copy email">Copy</button>
+                    <button class="btn" onclick="copyPassword()" aria-label="Copy password">Copy password</button>
+                    <button class="btn" onclick="refreshEmail()" aria-label="Refresh email">Refresh</button>
+                    <button class="btn btn-danger" onclick="deleteEmail()" aria-label="Delete email">Delete</button>
+                </div>
+            </div>
+
+            <div class="password-row">
+                <label class="pw-label">Password:</label>
+                <span id="passwordDisplay" class="password-display">—</span>
+            </div>
+
+            <div class="timer-row">
+                <div id="timer" class="timer-text">—</div>
+                <div class="progress-wrap">
+                    <div id="timerProgress" class="timer-progress"></div>
+                </div>
+            </div>
+
+            <div id="inbox" class="inbox inbox-section">
+                <div class="inbox-header">
+                    <h3>Inbox</h3>
+                    <div class="inbox-meta">
+                        <small id="messageCount">0 messages</small>
+                    </div>
+                </div>
+                <ul id="emailList" class="email-list">
+                    <!-- Email list gets filled by JS -->
+                </ul>
+            </div>
+        </section>
+
+        <aside class="card" style="display:none"></aside>
+    </main>
+
+    <!-- Message modal -->
+    <div id="messageModal" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+            <h4 id="modalSubject">Subject</h4>
+            <div id="modalTime" class="meta">Time</div>
+            <pre id="modalBody" class="message-body"></pre>
+        </div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
